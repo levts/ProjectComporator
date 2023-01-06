@@ -4,11 +4,13 @@ import java.util.Comparator;
 
 public class NoblePersonComparator implements Comparator<Person> {
     @Override
-    public int compare(Person o1, Person o2) {
-        if (o1.getSurname().length() - o2.getSurname().length() == 0) {
-            return o1.getAge() - o2.getAge();
+    public int compare(Person p1, Person p2) {
+        String[] first = p1.getSurname().split(" ");
+        String[] second = p2.getSurname().split(" ");
+        if (first.length == second.length) {
+            return p1.getAge() - p2.getAge();
         } else {
-            return o1.getSurname().length() - o2.getSurname().length();
+            return first.length - second.length;
         }
     }
 }
